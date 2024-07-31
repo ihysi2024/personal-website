@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<!--
+	Landed by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Elements - Landed by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+			<header id="header">
+				<nav id="nav">
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="elements.html">About</a></li>
+						<li><a href="left-sidebar.html">Projects</a></li>
+						<li><a href="right-sidebar.html">Research</a></li>
+						<li><a href="contact.html" class="button primary">Contact Me</a></li>
+					</ul>
+				</nav>
+			</header>
+
+            <body>
+                <div class="form-container">
+                    <section class="contact">
+                        <h3>Form</h3>
+                        <form method="post" action="https://api.web3forms.com/submit">
+                            <input type="hidden" name="access_key" value="05f7f508-691d-4165-8b7a-e4a06dc9bc3a">
+                                
+                            <div class="row gtr-uniform gtr-50">
+                                <div class="col-6 col-12-xsmall">
+                                    <input type="text" name="name" id="name" value="" placeholder="Name" />
+                                </div>
+                                <div class="col-6 col-12-xsmall">
+                                    <input type="email" name="email" id="email" value="" placeholder="Email" />
+                                </div>
+                                <div class="col-4 col-12-medium">
+                                    <input type="radio" id="priority-low" name="priority" checked>
+                                    <label for="priority-low">Low Priority</label>
+                                </div>
+                                <div class="col-4 col-12-medium">
+                                    <input type="radio" id="priority-normal" name="priority">
+                                    <label for="priority-normal">Normal Priority</label>
+                                </div>
+                                <div class="col-4 col-12-medium">
+                                    <input type="radio" id="priority-high" name="priority">
+                                    <label for="priority-high">High Priority</label>
+                                </div>
+                                <div class="col-6 col-12-medium">
+                                    <input type="checkbox" id="copy" name="copy">
+                                    <label for="copy">Email me a copy of this message</label>
+                                </div>
+                                <div class="col-6 col-12-medium">
+                                    <input type="checkbox" id="human" name="human" checked>
+                                    <label for="human">I am a human and not a robot</label>
+                                </div>
+                                <div class="col-12">
+                                    <textarea name="message" id="message" placeholder="Enter your message" rows="6"></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <ul class="actions">
+                                        <li><input type="submit" value="Send Message" class="primary" /></li>
+                                        <li><input type="reset" value="Reset" /></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+                
+                <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const form = document.getElementById('contact-form');
+                    const responseMessage = document.getElementById('response-message');
+
+                    if (form) {
+                        form.addEventListener('submit', function(event) {
+                            event.preventDefault(); // Prevent default form submission
+
+                            // Add form submission logic here
+                            // For example, display a thank you message
+                            if (responseMessage) {
+                                responseMessage.classList.remove('hidden');
+                                responseMessage.classList.add('show');
+                            }
+                        });
+                    }
+                });
+                
+                </script>
+            </body>
+</html>
