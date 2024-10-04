@@ -1,23 +1,135 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Left Sidebar - Landed by HTML5 UP</title>
+    <title>Projects</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
     <style>
-        /* Include the CSS animation code here */
+        /* Style for the project container */
+        .projects-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        /* Style for each project card */
+        .project-card {
+            border-radius: 50px;
+            position: relative;
+            width: 400px;
+            height: 400px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Overlay */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8); /* Dark overlay */
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Content (header + description) */
+        .project-content {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: #fff;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover .overlay {
+            opacity: 1;
+        }
+
+        .project-card:hover .project-content {
+            opacity: 1;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05); /* Slight zoom effect */
+        }
+
+        h3, p {
+            margin: 0;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            display: flex;
+            width: 70%;
+            max-width: 900px;
+            border-radius: 10px;
+        }
+
+        .modal-left {
+            width: 60%;
+        }
+
+        .modal-right {
+            width: 40%;
+            padding-left: 20px;
+            text-align: center; /* Center the text */
+        }
+
+        .modal-right h2, .modal-right p {
+            margin: 0;
+            padding: 10px; /* Add padding for better spacing */
+        }
+        
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        /* Ensure modal-left is hidden when no video is needed */
+        .modal-left.hidden {
+            display: none;
+        }
+
     </style>
 </head>
-<body class="is-preload" >
+<body>
     <div id="page-wrapper">
         <!-- Header -->
         <header id="header">
             <nav id="nav">
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="elements.html">About</a></li>
                     <li><a href="left-sidebar.html">Projects</a></li>
                     <li><a href="right-sidebar.html">Research</a></li>
                     <li><a href="contact.html" class="button primary">Contact Me</a></li>
@@ -30,97 +142,135 @@
             <div class="container">
                 <header class="major animate">
                     <h2>Projects</h2>
-                    <p>Click to see live demos!</p>
+                    <p>Click to learn more!</p>
                 </header>
-                <div class="row gtr-150">
-                    <div class="col-4 col-12-medium">
-                        <!-- Sidebar -->
-                        <section id="sidebar" class="slide-up">
-                            <section>
-                                <h3>Want to see more?</h3>
-                                <p>Check out my GitHub to see a more detailed demonstration of my programming abilities!</p>
-                                <footer>
-                                    <ul class="actions">
-                                        <li><a href="https://github.com/ihysi2024" class="button">Go To GitHub</a></li>
-                                    </ul>
-                                </footer>
-                            </section>
-                            <hr />
-                            <section>
-                                <a class="image projects"><img src="images/gnn.png" alt="" 
-									class="image fit thumb">
-									</a>
-                                <h3>AI for Disease Prediction</h3>
-                                <p>Graph Neural Network for disease prediction from recorded symptomology. Especially for patients with chronic illnesses, detecting patterns in symptoms efficiently and accurately is integral to patient health. This project features a Graph Neural Network called DeepWalk for disease prediction from publicly available symptom datasets that, where the same symptom can exist for multiple multiple conditions. This could potentially optimize treatment development for doctors and provide reassurance for patients.</p>
-                                
-                            </section>
-                        </section>
+                
+                <div class="projects-container"> <!-- Project cards with overlay and hover effect -->
+                    <div class="project-card" id="project1">
+                        <img src="images/gnn.png" alt="AI for Disease Prediction">
+                        <div class="overlay"></div>
+                        <div class="project-content">
+                            <h3>AI for Disease Prediction</h3>
+                            <p>Graph Neural Network for disease prediction from recorded symptomology</p>
+                        </div>
                     </div>
-					
-                    <div class="col-8 col-12-medium imp-medium">
-                        <!-- Content -->
-                        <section id="content" class="animate">
-                            <a onclick="openModal('TaskMaster Productivity App', 'Using Android Studio for Mobile App Development and Android Calendar APIs, this application allows users to create new tasks and keep track of their priority level and deadline.Completing tasks results in encouraging messages that motivate user productivity, and enable better organization and structure in the completion of weekly tasks.', 'http://localhost:8000/taskmaster_video.mp4'); return false;" class="image fit thumb"
-								 href="#" style="width: 400px; height:400px" class="image fit"><img src="images/Welcome to TaskMaster! (1).png" style="width: 400px; height:400px" alt="" /></a>
+
+                    <div class="project-card" id="project2">
+                        <img src="images/Welcome to TaskMaster! (3).png" alt="TaskMaster Productivity App">
+                        <div class="overlay"></div>
+                        <div class="project-content">
                             <h3>TaskMaster</h3>
                             <p>Android Studio Application for tracking <br /> and motivating productivity.</p>
-                        </section>
-						<hr />
-						<section id="content" class="animate">
-                            <a onclick="openModal('Google Sheets Imitation', 'This web application imitates Google Sheets functionality by allowing users to register a new account with secure authorization, create, edit, delete or share sheets with other users,and perform a wide range of operations dynamically for publishers to adopt. This was built using Java SpringBoot and REST APIs for the server component, Java for the back-end and React.js/Typescript for the front-end.', 'http://localhost:8000/husky_sheet.mp4'); return false;" class="image fit thumb"
-								href="#" class="image fit" style="width: 400px; height:400px"><img src="images/sheet_v2.png" style="width: 400px; height:400px" alt="" /></a>
-                            <h3>Google Sheets Imitation</h3>
-                            <p> Web application mimicking Google Sheets <br />that allows users to create, edit, delete and <br /> share sheets with others. and motivating <br />productivity.</p>
-                        </section>
+                        </div>
                     </div>
-					
-			
+
+                    <div class="project-card" id="project3">
+                        <img src="images/Untitled design (5).png" alt="Employ.ai">
+                        <div class="overlay"></div>
+                        <div class="project-content">
+                            <h3>Employ.ai</h3>
+                            <p>Web Application that uses AI to deliver personalized job recommendations</p>
+                        </div>
+                    </div>
+                    
                 </div>
+                
             </div>
         </div>
-
-        <!-- Footer -->
-        <footer id="footer">
-            <ul class="icons">
-                <li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-                <li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-                <li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-                <li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-                <li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-                <li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
-            </ul>
-            <ul class="copyright">
-                <li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-            </ul>
-        </footer>
+        
     </div>
 
-	<div id="myModal" class="modal">
+    <!-- Modal -->
+    <div id="myModal" class="modal">
         <div class="modal-content">
-            <div class="modal-left">
+            <div class="modal-left" id="modalLeft">
                 <video id="modalVideo" controls>
-                    <source src="http://localhost:8000/taskmaster_video.mp4" type="video/mp4">
+                    <source src="" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
-            <div class="modal-right">
+            <div id = "modalRight" class="modal-right">
                 <span class="close">&times;</span>
                 <h2 id="modalTitle">Title</h2>
                 <p id="modalContent">Content goes here...</p>
             </div>
         </div>
     </div>
-
     
+    <script>
+        // Get modal elements
+        var modal = document.getElementById("myModal");
+        var modelRight = document.getElementById("modalRight")
+        var modalVideo = document.getElementById("modalVideo");
+        var modalLeft = document.getElementById("modalLeft");
+        var modalTitle = document.getElementById("modalTitle");
+        var modalContent = document.getElementById("modalContent");
+        var closeBtn = document.getElementsByClassName("close")[0];
     
-	  
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.poptrox.min.js"></script>
-	<script src="assets/js/browser.min.js"></script>
-	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
-	<script src="assets/js/script.js"></script>
-		</div>
+        // Project details for each card
+        var projectDetails = {
+            "project1": {
+                "title": "AI for Disease Prediction",
+                "content": "Graph Neural Network for disease prediction from recorded symptomology. Vectorized open-source symptom data and integrated DeepWalk node embedding algorithm for model training to determine patient outcome based on relevant symptomology. Assessed performance of model prediction capabilities via accuracy."
+            },
+            "project2": {
+                "videoSrc": "assets/videos/taskmaster_video.mp4", // Local video file for TaskMaster
+                "title": "TaskMaster",
+                "content": "Android Studio Application for tracking and motivating productivity. Uses Javascript, Android Studio, Firebase, and Android Calendar API for seamless user flow, authentication, and storage."
+            },
+            "project3": {
+                "videoSrc": "assets/videos/Employ.ai.mp4", // Local video file for Employ.ai
+                "title": "Employ.ai",
+                "content": "Web Application that uses AI to deliver personalized job recommendations. Uses Javascript, NextJS, TailwindCSS, Firebase, OpenAI API, and Adzuna API to ensure secure user authentication and an accurate AI-driven recommendation algorithm."
+            }
+        };
+    
+        // Function to open modal without video (only text)
+        function openModalNoVideo(projectId) {
+            var project = projectDetails[projectId];
+            modalTitle.innerText = project.title;
+            modalContent.innerText = project.content;
+            modalLeft.classList.add("hidden"); // Hide the modal left section (video)
+            modalVideo.src = ""; // Clear video source
+            modal.style.display = "flex"; // Display modal
+            modalRight.style.width = "100%";
+        }
+    
+        // Function to open modal with video
+        function openModalWithVideo(projectId) {
+            var project = projectDetails[projectId];
+            modalLeft.classList.remove("hidden"); // Ensure the modal left section is visible
+            modalVideo.src = project.videoSrc;
+            modalTitle.innerText = project.title;
+            modalContent.innerText = project.content;
+            modal.style.display = "flex"; // Display modal
+            modalRight.style.width = "40%";
+        }
+    
+        // Event listeners for project cards
+        document.getElementById("project1").onclick = function() {
+            openModalNoVideo("project1"); // Open modal with just text for Project 1
+        };
+        document.getElementById("project2").onclick = function() {
+            openModalWithVideo("project2"); // Open modal with video for Project 2
+        };
+        document.getElementById("project3").onclick = function() {
+            openModalWithVideo("project3"); // Open modal with video for Project 3
+        };
+    
+        // Close modal
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+            modalVideo.src = ""; // Reset video src to stop playback
+        };
+    
+        // Close modal if user clicks outside of it
+        window.onclick = function(event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+                modalVideo.src = ""; // Reset video src to stop playback
+            }
+        };
+    </script>
 </body>
 </html>

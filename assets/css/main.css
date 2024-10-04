@@ -213,7 +213,7 @@ body {
 	}
 
 	code {
-		background: rgba(255, 255, 255, 0.075);
+		background: #247385;
 		border-radius: 4px;
 		font-family: "Courier New", monospace;
 		font-size: 0.9em;
@@ -4108,6 +4108,7 @@ body {
 
 	}
 
+
 /* XSmall */
 
 	@media screen and (max-width: 480px) {
@@ -4353,4 +4354,108 @@ body {
     padding: 20px; /* Optional padding */
     border-radius: 8px; /* Optional rounded corners */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional shadow */
+}
+
+/* Container for projects to use flexbox layout */
+.projects-container {
+	margin-left: 30px;
+    display: flex;                /* Use flexbox */
+    justify-content: space-between; /* Space between items */
+    flex-wrap: wrap;             /* Allow wrapping for responsiveness */
+}
+
+/* Individual section styles */
+.projects-container section {
+    flex: 1;                     /* Make sections flexible */
+    margin: 0 10px;             /* Add some horizontal margin */
+    min-width: 250px;           /* Set a minimum width for responsiveness */
+}
+
+/* Ensure images are responsive */
+.image.fit img {
+    width: 100%;                /* Fit to the container */
+    height: auto;               /* Maintain aspect ratio */
+}
+
+.project-image {
+    width: 200px; /* Set the desired width */
+    height: 200px; /* Set the desired height */
+    object-fit: cover; /* Maintain aspect ratio and cover the area */
+}
+
+.centered-section {
+    text-align: center; /* Center text */
+    margin: 0 auto;    /* Center the section itself */
+}
+
+.centered-section .actions {
+    list-style: none;   /* Remove bullets */
+    padding: 0;        /* Remove padding */
+    display: inline-block; /* Center the list items */
+}
+
+.centered-section .actions li {
+    display: inline;    /* Display items inline */
+}
+
+.small-button {
+    font-size: 0.8em; /* Smaller font size */
+    padding: 10px 20px; /* Add padding for a more compact look */
+    display: inline-block;
+    text-align: center; /* Center text inside the button */
+	border-radius: 200px;
+}
+
+ul.actions {
+    display: flex;
+    justify-content: center; /* Center the buttons */
+	margin-left: 270px;
+	margin-top: 20px;
+    gap: 30px; /* Add space between buttons */
+}
+
+ul.actions a {
+    text-decoration: none;
+}
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Dim background */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    display: flex;
+    width: 70%;
+    max-width: 900px;
+    max-height: 80vh; /* Ensure the modal doesn’t overflow the screen */
+    border-radius: 10px;
+    overflow-y: auto; /* Adds scrolling if content overflows */
+    position: relative; /* Allows the close button to position correctly */
+}
+
+.modal-left {
+    width: 60%;
+}
+
+.modal-right {
+    width: 40%;
+    padding-left: 20px;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
 }
